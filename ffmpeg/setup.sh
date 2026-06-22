@@ -43,13 +43,13 @@ echo "TOOLCHAIN_PREFIX=${TOOLCHAIN_PREFIX}"
 if command -v sdkmanager &> /dev/null; then
   # Use sdkmanager from PATH
   echo "Using sdkmanager from PATH"
-  echo y | sdkmanager --sdk_root="${ANDROID_SDK_HOME}" "cmake;${ANDROID_CMAKE_VERSION}"
+  echo y | sdkmanager --sdk_root="${ANDROID_HOME}" "cmake;3.31.6"
 else
   # Use sdkmanager from Android SDK
-  SDKMANAGER_EXECUTABLE="${ANDROID_SDK_HOME}/cmdline-tools/latest/bin/sdkmanager"
+  SDKMANAGER_EXECUTABLE="${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager"
   if [[ -x "$SDKMANAGER_EXECUTABLE" ]]; then
     echo "Using sdkmanager from Android SDK"
-    echo y | "$SDKMANAGER_EXECUTABLE" --sdk_root="${ANDROID_SDK_HOME}" "cmake;${ANDROID_CMAKE_VERSION}"
+    echo y | "$SDKMANAGER_EXECUTABLE" --sdk_root="${ANDROID_HOME}" "cmake;3.31.6"
   else
     echo "Error: sdkmanager not found in PATH or Android SDK"
     exit 1
