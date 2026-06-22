@@ -50,7 +50,7 @@ jobs:
           gradle-home-cache-cleanup: true
 
       - name: Build Project with gradle
-        run: ./gradlew assembleRelease
+        run: ./ffmpeg/setup.sh
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v6.0.0
