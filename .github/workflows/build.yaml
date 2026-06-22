@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/${NDK_VERSION}" >> $GITHUB_ENV
           echo "CMAKE_EXECUTABLE=${ANDROID_HOME}/cmake/${CMAKE_VERSION}/bin/cmake" >> $GITHUB_ENV
-          echo "BASE_DIR=$(cd "$(dirname "$0")" && pwd)" >> $GITHUB_ENV
+          echo "BASE_DIR=./ffmpeg" >> $GITHUB_ENV
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
