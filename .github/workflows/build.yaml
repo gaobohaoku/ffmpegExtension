@@ -53,7 +53,7 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v4
         with:
           name: ffcodecs-release.aar
-          path: ${{ github.workspace }}/build
+          path: ${{ github.workspace }}
