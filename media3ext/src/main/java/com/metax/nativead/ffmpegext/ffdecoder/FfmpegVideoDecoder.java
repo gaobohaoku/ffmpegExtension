@@ -1,4 +1,4 @@
-package io.github.anilbeesetti.nextlib.media3ext.ffdecoder;
+package com.metax.nativead.ffmpegext.ffdecoder;
 
 import android.util.Log;
 import android.view.Surface;
@@ -77,21 +77,18 @@ final class FfmpegVideoDecoder extends
     private static byte[] getExtraData(String mimeType, List<byte[]> initializationData) {
         if (initializationData.isEmpty()) return null;
         switch (mimeType) {
-            case MimeTypes.VIDEO_H264 -> {
+            case MimeTypes.VIDEO_H264:
                 byte[] sps = initializationData.get(0);
                 byte[] pps = initializationData.get(1);
                 byte[] extraData = new byte[sps.length + pps.length];
                 System.arraycopy(sps, 0, extraData, 0, sps.length);
                 System.arraycopy(pps, 0, extraData, sps.length, pps.length);
                 return extraData;
-            }
-            case MimeTypes.VIDEO_H265 -> {
+            case MimeTypes.VIDEO_H265:
                 return initializationData.get(0);
-            }
-            default -> {
+            default:
                 // Other codecs do not require extra data.
                 return null;
-            }
         }
     }
 

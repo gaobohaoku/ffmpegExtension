@@ -1,4 +1,4 @@
-package io.github.anilbeesetti.nextlib.media3ext.ffdecoder;
+package com.metax.nativead.ffmpegext.ffdecoder;
 
 import androidx.annotation.Nullable;
 import androidx.media3.common.C;
@@ -100,32 +100,74 @@ public final class FfmpegLibrary {
    */
   @Nullable
   /* package */ static String getCodecName(String mimeType) {
-    return switch (mimeType) {
-      // Audio codecs
-      case MimeTypes.AUDIO_AAC -> "aac";
-      case MimeTypes.AUDIO_MPEG, MimeTypes.AUDIO_MPEG_L1, MimeTypes.AUDIO_MPEG_L2 -> "mp3";
-      case MimeTypes.AUDIO_AC3 -> "ac3";
-      case MimeTypes.AUDIO_E_AC3, MimeTypes.AUDIO_E_AC3_JOC -> "eac3";
-      case MimeTypes.AUDIO_TRUEHD -> "truehd";
-      case MimeTypes.AUDIO_DTS, MimeTypes.AUDIO_DTS_HD -> "dca";
-      case MimeTypes.AUDIO_VORBIS -> "vorbis";
-      case MimeTypes.AUDIO_OPUS -> "opus";
-      case MimeTypes.AUDIO_AMR_NB -> "amrnb";
-      case MimeTypes.AUDIO_AMR_WB -> "amrwb";
-      case MimeTypes.AUDIO_FLAC -> "flac";
-      case MimeTypes.AUDIO_ALAC -> "alac";
-      case MimeTypes.AUDIO_MLAW -> "pcm_mulaw";
-      case MimeTypes.AUDIO_ALAW -> "pcm_alaw";
+    switch (mimeType) {
+      case MimeTypes.AUDIO_AAC:
+        return "aac";
 
-      // Video codecs
-      case MimeTypes.VIDEO_H264 -> "h264";
-      case MimeTypes.VIDEO_H265 -> "hevc";
-      case MimeTypes.VIDEO_MPEG -> "mpegvideo";
-      case MimeTypes.VIDEO_MPEG2 -> "mpeg2video";
-      case MimeTypes.VIDEO_VP8 -> "libvpx";
-      case MimeTypes.VIDEO_VP9 -> "libvpx-vp9";
-      default -> null;
-    };
+      case MimeTypes.AUDIO_MPEG:
+      case MimeTypes.AUDIO_MPEG_L1:
+      case MimeTypes.AUDIO_MPEG_L2:
+        return "mp3";
+
+      case MimeTypes.AUDIO_AC3:
+        return "ac3";
+
+      case MimeTypes.AUDIO_E_AC3:
+      case MimeTypes.AUDIO_E_AC3_JOC:
+        return "eac3";
+
+      case MimeTypes.AUDIO_TRUEHD:
+        return "truehd";
+
+      case MimeTypes.AUDIO_DTS:
+      case MimeTypes.AUDIO_DTS_HD:
+        return "dca";
+
+      case MimeTypes.AUDIO_VORBIS:
+        return "vorbis";
+
+      case MimeTypes.AUDIO_OPUS:
+        return "opus";
+
+      case MimeTypes.AUDIO_AMR_NB:
+        return "amrnb";
+
+      case MimeTypes.AUDIO_AMR_WB:
+        return "amrwb";
+
+      case MimeTypes.AUDIO_FLAC:
+        return "flac";
+
+      case MimeTypes.AUDIO_ALAC:
+        return "alac";
+
+      case MimeTypes.AUDIO_MLAW:
+        return "pcm_mulaw";
+
+      case MimeTypes.AUDIO_ALAW:
+        return "pcm_alaw";
+
+      case MimeTypes.VIDEO_H264:
+        return "h264";
+
+      case MimeTypes.VIDEO_H265:
+        return "hevc";
+
+      case MimeTypes.VIDEO_MPEG:
+        return "mpegvideo";
+
+      case MimeTypes.VIDEO_MPEG2:
+        return "mpeg2video";
+
+      case MimeTypes.VIDEO_VP8:
+        return "libvpx";
+
+      case MimeTypes.VIDEO_VP9:
+        return "libvpx-vp9";
+
+      default:
+        return null;
+    }
   }
 
   private static native String ffmpegGetVersion();

@@ -1,4 +1,4 @@
-package io.github.anilbeesetti.nextlib.media3ext.renderer
+package com.metax.nativead.ffmpegext.renderer
 
 import androidx.media3.common.C
 import androidx.media3.common.util.UnstableApi

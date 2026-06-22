@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "nextlib"
 include(":media3ext")
-include(":mediainfo")
+//include(":mediainfo")

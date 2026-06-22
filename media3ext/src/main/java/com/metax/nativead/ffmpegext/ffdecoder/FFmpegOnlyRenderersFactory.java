@@ -1,4 +1,4 @@
-package io.github.anilbeesetti.nextlib.media3ext.ffdecoder;
+package com.metax.nativead.ffmpegext.ffdecoder;
 
 import android.content.Context;
 import android.os.Handler;

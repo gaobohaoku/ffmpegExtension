@@ -1,4 +1,4 @@
-package io.github.anilbeesetti.nextlib.media3ext.ffdecoder
+package com.metax.nativead.ffmpegext.ffdecoder
 
 import android.content.Context
 import android.os.Handler
@@ -12,11 +12,11 @@ import androidx.media3.exoplayer.audio.AudioSink
 import androidx.media3.exoplayer.mediacodec.MediaCodecSelector
 import androidx.media3.exoplayer.text.TextOutput
 import androidx.media3.exoplayer.video.VideoRendererEventListener
-import io.github.anilbeesetti.nextlib.media3ext.renderer.NextTextRenderer
+import com.metax.nativead.ffmpegext.renderer.NextTextRenderer
 
 
 @UnstableApi
-open class NextRenderersFactory(context: Context) : DefaultRenderersFactory(context) {
+open class MetaxRenderersFactory(context: Context) : DefaultRenderersFactory(context) {
 
     override fun buildAudioRenderers(
         context: Context,
@@ -105,6 +105,6 @@ open class NextRenderersFactory(context: Context) : DefaultRenderersFactory(cont
     }
 
     companion object {
-        const val TAG = "NextRenderersFactory"
+        const val TAG = "MetaxRenderersFactory"
     }
 }

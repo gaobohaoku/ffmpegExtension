@@ -212,7 +212,7 @@ int transformError(int errorNumber) {
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpegInitialize(JNIEnv *env,
+Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegInitialize(JNIEnv *env,
                                                                         jobject thiz,
                                                                         jstring codec_name,
                                                                         jbyteArray extra_data,
@@ -224,7 +224,7 @@ Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpe
         LOGE("Codec not found.");
         return 0L;
     }
-    jclass clazz = env->FindClass("io/github/anilbeesetti/nextlib/media3ext/ffdecoder/FfmpegAudioDecoder");
+    jclass clazz = env->FindClass("com/metax/nativead/ffdecoder/FfmpegAudioDecoder");
     growOutputBufferMethod = env->GetMethodID(clazz, "growOutputBuffer","(Landroidx/media3/decoder/SimpleDecoderOutputBuffer;I)Ljava/nio/ByteBuffer;");
     return (jlong) createContext(env, codec, extra_data, output_float, raw_sample_rate,
                                  raw_channel_count);
@@ -232,7 +232,7 @@ Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpe
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpegDecode(JNIEnv *env,
+Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegDecode(JNIEnv *env,
                                                                     jobject thiz,
                                                                     jlong context,
                                                                     jobject input_data,
@@ -276,7 +276,7 @@ Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpe
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpegGetChannelCount(
+Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegGetChannelCount(
         JNIEnv *env, jobject thiz, jlong context) {
     if (!context) {
         LOGE("Context must be non-NULL.");
@@ -287,7 +287,7 @@ Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpe
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpegGetSampleRate(JNIEnv *env,
+Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegGetSampleRate(JNIEnv *env,
                                                                            jobject thiz,
                                                                            jlong context) {
     if (!context) {
@@ -299,7 +299,7 @@ Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpe
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpegReset(JNIEnv *env,
+Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegReset(JNIEnv *env,
                                                                    jobject thiz,
                                                                    jlong jContext,
                                                                    jbyteArray extra_data) {
@@ -332,7 +332,7 @@ Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpe
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_io_github_anilbeesetti_nextlib_media3ext_ffdecoder_FfmpegAudioDecoder_ffmpegRelease(JNIEnv *env,
+Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegRelease(JNIEnv *env,
                                                                      jobject thiz,
                                                                      jlong context) {
     if (context) {

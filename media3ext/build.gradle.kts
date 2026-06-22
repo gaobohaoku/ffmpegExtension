@@ -3,11 +3,11 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.mavenPublish)
+    alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    namespace = "io.github.anilbeesetti.nextlib.media3ext"
+    namespace = "com.metax.nativead.ffmpegext"
     compileSdk = libs.versions.androidCompileSdk.get().toInt()
     ndkVersion = libs.versions.ndk.get()
 
@@ -27,14 +27,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    kotlin {
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_17
-        }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions.jvmTarget = "1.8" // Ensure this matches the Java version
     }
 
     externalNativeBuild {
