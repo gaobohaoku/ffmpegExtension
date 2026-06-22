@@ -37,6 +37,8 @@ echo "---------- build tools ------------"
 TOOLCHAIN_PREFIX="${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/${HOST_PLATFORM}"
 echo "CMAKE_EXECUTABLE=${CMAKE_EXECUTABLE}"
 echo "TOOLCHAIN_PREFIX=${TOOLCHAIN_PREFIX}"
+echo "BASE_DIR=${BASE_DIR}"
+echo "BUILD_DIR=${BUILD_DIR}""
 
 # Check if sdkmanager is in PATH
 if command -v sdkmanager &> /dev/null; then
