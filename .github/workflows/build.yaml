@@ -16,7 +16,7 @@ jobs:
     
     env:
       NDK_VERSION: "25.2.9519653"  # 【请修改】为你项目中实际使用的 NDK 版本
-      CMAKE_VERSION: "3.36.1"       # 【请修改】为你项目中实际使用的 CMake 版本
+      CMAKE_VERSION: "3.31.6"       # 【请修改】为你项目中实际使用的 CMake 版本
 
     steps:
       - name: Checkout repository
