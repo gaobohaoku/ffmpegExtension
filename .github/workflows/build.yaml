@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/${NDK_VERSION}" >> $GITHUB_ENV
           echo "CMAKE_EXECUTABLE=${ANDROID_HOME}/cmake/${CMAKE_VERSION}/bin/cmake" >> $GITHUB_ENV
-          echo "BASE_DIR=./ffmpeg" >> $GITHUB_ENV
+          echo "BASE_DIR=${{ github.workspace }}" >> $GITHUB_ENV
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
@@ -50,7 +50,7 @@ jobs:
           gradle-home-cache-cleanup: true
 
       - name: Build Project with gradle
-        run: ./ffmpeg/setup.sh
+        run: ./gradlew assembleRelease
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v6.0.0
