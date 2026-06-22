@@ -6,7 +6,6 @@ MBEDTLS_VERSION=3.4.1
 FFMPEG_VERSION=6.0
 
 # Directories
-BASE_DIR=$(cd "$(dirname "$0")" && pwd)
 BUILD_DIR=$BASE_DIR/build
 OUTPUT_DIR=$BASE_DIR/output
 SOURCES_DIR=$BASE_DIR/sources
