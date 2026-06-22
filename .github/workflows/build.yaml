@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
+
 concurrency:
   group: build-${{ github.ref }}
   cancel-in-progress: true
@@ -12,9 +13,34 @@ jobs:
   build:
     name: Build ffmpegext
     runs-on: ubuntu-latest
+    
+    env:
+      NDK_VERSION: "25.2.9519653"  # 【请修改】为你项目中实际使用的 NDK 版本
+      CMAKE_VERSION: "3.36.1"       # 【请修改】为你项目中实际使用的 CMake 版本
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
+      # 已修改：使用 JDK 1.8 (Java 8)
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+
+      - name: Install Android NDK and CMake
+        run: |
+          echo "Accepting Android SDK licenses..."
+          yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses
+          
+          echo "Downloading and installing NDK and CMake..."
+          ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;${NDK_VERSION}" "cmake;${CMAKE_VERSION}"
+
+      - name: Set Environment Variables
+        run: |
+          echo "ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          echo "CMAKE_EXECUTABLE=${ANDROID_HOME}/cmake/${CMAKE_VERSION}/bin/cmake" >> $GITHUB_ENV
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
@@ -25,7 +51,8 @@ jobs:
       - name: Build Project with gradle
         run: ./gradlew assembleRelease
 
-      - uses: actions/upload-artifact@v6.0.0
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6.0.0
         with:
           name: nextlib-release.aar
           path: ./ffcodecs/build/outputs/aar/ffcodecs-release.aar
