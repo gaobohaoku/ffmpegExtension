@@ -34,8 +34,10 @@ msys)
 esac
 
 # Build tools
+echo "---------- build tools ------------"
 TOOLCHAIN_PREFIX="${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/${HOST_PLATFORM}"
-CMAKE_EXECUTABLE="${ANDROID_SDK_HOME}/cmake/${ANDROID_CMAKE_VERSION}/bin/cmake"
+echo "CMAKE_EXECUTABLE=${CMAKE_EXECUTABLE}"
+echo "TOOLCHAIN_PREFIX=${TOOLCHAIN_PREFIX}"
 
 # Check if sdkmanager is in PATH
 if command -v sdkmanager &> /dev/null; then
