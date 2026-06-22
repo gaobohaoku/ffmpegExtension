@@ -46,39 +46,6 @@ android {
 // Gradle task to setup ffmpeg
 val ffmpegSetup by tasks.registering(Exec::class) {
     workingDir = file("../ffmpeg")
-
-    // 这里只获取 Provider 引用，不要调用 .get() 或 .orNull
-    val sdkDirProvider = androidComponents.sdkComponents.sdkDirectory
-    val ndkDirProvider = androidComponents.sdkComponents.ndkDirectory
-    val cmakeProvider = libs.versions.cmake
-
-    doFirst {
-        // 1. 安全获取 SDK
-        val sdkPath = try {
-            sdkDirProvider.orNull?.asFile?.absolutePath
-        } catch (e: Exception) { null }
-            ?: throw GradleException("❌ 找不到 Android SDK 路径，请检查环境！")
-
-        // 2. 安全获取 NDK (强力拦截 AGP 的原生异常)
-        val ndkPath = try {
-            ndkDirProvider.orNull?.asFile?.absolutePath
-        } catch (e: Exception) { null }
-            ?: throw GradleException("❌ 找不到 Android NDK 路径！\n【必做】：请务必在 android {} 闭包中添加 ndkVersion = \"你的版本号\"，并确保已在 SDK Manager 中下载该 NDK！")
-
-        // 3. 安全获取 CMake
-        val cmakeVersion = try {
-            cmakeProvider.orNull
-        } catch (e: Exception) { null }
-            ?: throw GradleException("❌ 找不到 CMake 版本！请确保 libs.versions.toml 中配置了 cmake = \"版本号\"")
-
-        // 注入环境变量
-        environment("ANDROID_SDK_HOME", sdkPath)
-        environment("ANDROID_NDK_HOME", ndkPath)
-        environment("ANDROID_CMAKE_VERSION", cmakeVersion)
-
-        println("FFmpeg Setup 环境准备完毕：NDK = $ndkPath")
-    }
-
     commandLine("bash", "setup.sh")
 }
 
