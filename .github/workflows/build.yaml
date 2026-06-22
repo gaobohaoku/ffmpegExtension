@@ -56,4 +56,4 @@ jobs:
         uses: actions/upload-artifact@v6.0.0
         with:
           name: ffcodecs-release.aar
-          path: ${BASE_DIR}/output
+          path: ${{ github.workspace }}
