@@ -54,5 +54,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v6.0.0
         with:
-          name: nextlib-release.aar
-          path: ./ffcodecs/build/outputs/aar/ffcodecs-release.aar
+          name: ffcodecs-release.aar
+          path: ./
