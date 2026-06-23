@@ -41,6 +41,16 @@ android {
             version = libs.versions.cmake.get()
         }
     }
+
+    libraryVariants.all {
+        val variant = this
+        variant.outputs
+            .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
+            .forEach { output ->
+                val type = variant.buildType.name
+                output.outputFileName = "MetaXAdNativeSDK_exoplayer_ext_${type}.aar"
+            }
+    }
 }
 
 // Gradle task to setup ffmpeg

@@ -130,7 +130,7 @@ JniContext *createVideoContext(JNIEnv *env,
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegInitialize(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegVideoDecoder_ffmpegInitialize(JNIEnv *env,
                                                                                  jobject thiz,
                                                                                  jstring codec_name,
                                                                                  jbyteArray extra_data,
@@ -146,7 +146,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegInitialize(
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegReset(JNIEnv *env, jobject thiz,
+Java_androidx_media3_decoder_ffmpeg_FfmpegVideoDecoder_ffmpegReset(JNIEnv *env, jobject thiz,
                                                                             jlong jContext) {
     auto *const jniContext = reinterpret_cast<JniContext *>(jContext);
     AVCodecContext *context = jniContext->codecContext;
@@ -161,7 +161,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegReset(JNIEn
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegRelease(JNIEnv *env, jobject thiz,
+Java_androidx_media3_decoder_ffmpeg_FfmpegVideoDecoder_ffmpegRelease(JNIEnv *env, jobject thiz,
                                                                               jlong jContext) {
     auto *const jniContext = reinterpret_cast<JniContext *>(jContext);
     AVCodecContext *context = jniContext->codecContext;
@@ -174,7 +174,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegRelease(JNI
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegRenderFrame(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegVideoDecoder_ffmpegRenderFrame(JNIEnv *env,
                                                                                   jobject thiz,
                                                                                   jlong jContext,
                                                                                   jobject surface,
@@ -292,7 +292,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegRenderFrame
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegSendPacket(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegVideoDecoder_ffmpegSendPacket(JNIEnv *env,
                                                                                  jobject thiz,
                                                                                  jlong jContext,
                                                                                  jobject encoded_data,
@@ -327,7 +327,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegSendPacket(
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegVideoDecoder_ffmpegReceiveFrame(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegVideoDecoder_ffmpegReceiveFrame(JNIEnv *env,
                                                                                    jobject thiz,
                                                                                    jlong jContext,
                                                                                    jint output_mode,

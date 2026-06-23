@@ -1,4 +1,4 @@
-package com.metax.nativead.ffmpegext.ffdecoder
+package androidx.media3.decoder.ffmpeg
 
 import android.content.Context
 import android.os.Handler
@@ -12,7 +12,6 @@ import androidx.media3.exoplayer.audio.AudioSink
 import androidx.media3.exoplayer.mediacodec.MediaCodecSelector
 import androidx.media3.exoplayer.text.TextOutput
 import androidx.media3.exoplayer.video.VideoRendererEventListener
-import com.metax.nativead.ffmpegext.renderer.NextTextRenderer
 
 
 @UnstableApi
@@ -85,7 +84,12 @@ open class MetaxRenderersFactory(context: Context) : DefaultRenderersFactory(con
         }
 
         try {
-            val renderer = FfmpegVideoRenderer(allowedVideoJoiningTimeMs, eventHandler, eventListener, MAX_DROPPED_VIDEO_FRAME_COUNT_TO_NOTIFY)
+            val renderer = ExperimentalFfmpegVideoRenderer(
+                allowedVideoJoiningTimeMs,
+                eventHandler,
+                eventListener,
+                MAX_DROPPED_VIDEO_FRAME_COUNT_TO_NOTIFY
+            )
             out.add(extensionRendererIndex++, renderer)
             Log.i(TAG, "Loaded FfmpegVideoRenderer.")
         } catch (e: java.lang.Exception) {

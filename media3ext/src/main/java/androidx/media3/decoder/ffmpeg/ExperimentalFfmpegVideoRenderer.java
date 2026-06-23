@@ -1,4 +1,4 @@
-package com.metax.nativead.ffmpegext.ffdecoder;
+package androidx.media3.decoder.ffmpeg;
 
 import static java.lang.Runtime.getRuntime;
 
@@ -23,27 +23,27 @@ import androidx.media3.exoplayer.video.VideoRendererEventListener;
 
 
 @UnstableApi
-public final class FfmpegVideoRenderer extends DecoderVideoRenderer {
+public final class ExperimentalFfmpegVideoRenderer extends DecoderVideoRenderer {
 
-    private static final String TAG = "FfmpegVideoRenderer";
+        private static final String TAG = "FfmpegVideoRenderer";
 
-    private static final int DEFAULT_NUM_OF_INPUT_BUFFERS = 4;
-    private static final int DEFAULT_NUM_OF_OUTPUT_BUFFERS = 4;
-    /* Default size based on 720p resolution video compressed by a factor of two. */
-    private static final int DEFAULT_INPUT_BUFFER_SIZE =
-            Util.ceilDivide(1280, 64) * Util.ceilDivide(720, 64) * (64 * 64 * 3 / 2) / 2;
+        private static final int DEFAULT_NUM_OF_INPUT_BUFFERS = 4;
+        private static final int DEFAULT_NUM_OF_OUTPUT_BUFFERS = 4;
+        /* Default size based on 720p resolution video compressed by a factor of two. */
+        private static final int DEFAULT_INPUT_BUFFER_SIZE =
+                Util.ceilDivide(1280, 64) * Util.ceilDivide(720, 64) * (64 * 64 * 3 / 2) / 2;
 
-    /** The number of input buffers. */
-    private final int numInputBuffers;
-    /**
-     * The number of output buffers. The renderer may limit the minimum possible value due to
-     * requiring multiple output buffers to be dequeued at a time for it to make progress.
-     */
-    private final int numOutputBuffers;
+        /** The number of input buffers. */
+        private final int numInputBuffers;
+        /**
+         * The number of output buffers. The renderer may limit the minimum possible value due to
+         * requiring multiple output buffers to be dequeued at a time for it to make progress.
+         */
+        private final int numOutputBuffers;
 
-    private final int threads;
+        private final int threads;
 
-    @Nullable private FfmpegVideoDecoder decoder;
+        @Nullable private FfmpegVideoDecoder decoder;
 
     /**
      * Creates a new instance.
@@ -56,7 +56,7 @@ public final class FfmpegVideoRenderer extends DecoderVideoRenderer {
      * @param maxDroppedFramesToNotify The maximum number of frames that can be dropped between
      *     invocations of {@link VideoRendererEventListener#onDroppedFrames(int, long)}.
      */
-    public FfmpegVideoRenderer(
+    public ExperimentalFfmpegVideoRenderer(
             long allowedJoiningTimeMs,
             @Nullable Handler eventHandler,
             @Nullable VideoRendererEventListener eventListener,
@@ -85,7 +85,7 @@ public final class FfmpegVideoRenderer extends DecoderVideoRenderer {
      * @param numInputBuffers Number of input buffers.
      * @param numOutputBuffers Number of output buffers.
      */
-    public FfmpegVideoRenderer(
+    public ExperimentalFfmpegVideoRenderer(
             long allowedJoiningTimeMs,
             @Nullable Handler eventHandler,
             @Nullable VideoRendererEventListener eventListener,
@@ -105,7 +105,7 @@ public final class FfmpegVideoRenderer extends DecoderVideoRenderer {
     }
 
     @Override
-    @RendererCapabilities.Capabilities
+    @Capabilities
     public final int supportsFormat(Format format) {
         String mimeType = Assertions.checkNotNull(format.sampleMimeType);
         if (!FfmpegLibrary.isAvailable() || !MimeTypes.isVideo(mimeType)) {

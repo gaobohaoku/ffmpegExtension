@@ -14,21 +14,21 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegLibrary_ffmpegGetVersion(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegLibrary_ffmpegGetVersion(JNIEnv *env,
                                                                    jclass clazz) {
     return env->NewStringUTF(LIBAVCODEC_IDENT);
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegLibrary_ffmpegGetInputBufferPaddingSize(
+Java_androidx_media3_decoder_ffmpeg_FfmpegLibrary_ffmpegGetInputBufferPaddingSize(
         JNIEnv *env, jclass clazz) {
     return (jint) AV_INPUT_BUFFER_PADDING_SIZE;
 }
 
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegLibrary_ffmpegHasDecoder(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegLibrary_ffmpegHasDecoder(JNIEnv *env,
                                                                    jclass clazz,
                                                                    jstring codec_name) {
     return getCodecByName(env, codec_name) != nullptr;

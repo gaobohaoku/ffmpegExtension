@@ -1,4 +1,4 @@
 @NonNullApi
-package com.metax.nativead.ffmpegext.ffdecoder;
+package androidx.media3.decoder.ffmpeg;
 
 import androidx.media3.common.util.NonNullApi;

@@ -1,4 +1,4 @@
-package com.metax.nativead.ffmpegext.ffdecoder;
+package androidx.media3.decoder.ffmpeg;
 
 import android.util.Log;
 import android.view.Surface;

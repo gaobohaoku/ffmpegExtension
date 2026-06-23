@@ -1,4 +1,4 @@
-package com.metax.nativead.ffmpegext.renderer
+package androidx.media3.decoder.ffmpeg
 
 import android.os.Looper
 import androidx.media3.common.C

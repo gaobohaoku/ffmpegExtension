@@ -1,4 +1,4 @@
-package com.metax.nativead.ffmpegext.renderer
+package androidx.media3.decoder.ffmpeg
 
 import androidx.media3.common.C
 import androidx.media3.common.util.UnstableApi

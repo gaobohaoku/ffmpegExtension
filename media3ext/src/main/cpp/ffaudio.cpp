@@ -212,7 +212,7 @@ int transformError(int errorNumber) {
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegInitialize(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegInitialize(JNIEnv *env,
                                                                         jobject thiz,
                                                                         jstring codec_name,
                                                                         jbyteArray extra_data,
@@ -232,7 +232,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegInitialize(
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegDecode(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegDecode(JNIEnv *env,
                                                                     jobject thiz,
                                                                     jlong context,
                                                                     jobject input_data,
@@ -276,7 +276,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegDecode(JNIE
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegGetChannelCount(
+Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegGetChannelCount(
         JNIEnv *env, jobject thiz, jlong context) {
     if (!context) {
         LOGE("Context must be non-NULL.");
@@ -287,7 +287,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegGetChannelC
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegGetSampleRate(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegGetSampleRate(JNIEnv *env,
                                                                            jobject thiz,
                                                                            jlong context) {
     if (!context) {
@@ -299,7 +299,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegGetSampleRa
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegReset(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegReset(JNIEnv *env,
                                                                    jobject thiz,
                                                                    jlong jContext,
                                                                    jbyteArray extra_data) {
@@ -332,7 +332,7 @@ Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegReset(JNIEn
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_metax_nativead_ffmpegext_ffdecoder_FfmpegAudioDecoder_ffmpegRelease(JNIEnv *env,
+Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegRelease(JNIEnv *env,
                                                                      jobject thiz,
                                                                      jlong context) {
     if (context) {

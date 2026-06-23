@@ -1,4 +1,4 @@
-package com.metax.nativead.ffmpegext.ffdecoder;
+package androidx.media3.decoder.ffmpeg;
 
 import static androidx.media3.exoplayer.audio.AudioSink.SINK_FORMAT_SUPPORTED_DIRECTLY;
 import static androidx.media3.exoplayer.audio.AudioSink.SINK_FORMAT_SUPPORTED_WITH_TRANSCODING;
