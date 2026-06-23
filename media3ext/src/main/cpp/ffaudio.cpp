@@ -224,7 +224,7 @@ Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegInitialize(JNIEnv *
         LOGE("Codec not found.");
         return 0L;
     }
-    jclass clazz = env->FindClass("com/metax/nativead/ffdecoder/FfmpegAudioDecoder");
+    jclass clazz = env->FindClass("androidx/media3/decoder/ffmpeg/FfmpegAudioDecoder");
     growOutputBufferMethod = env->GetMethodID(clazz, "growOutputBuffer","(Landroidx/media3/decoder/SimpleDecoderOutputBuffer;I)Ljava/nio/ByteBuffer;");
     return (jlong) createContext(env, codec, extra_data, output_float, raw_sample_rate,
                                  raw_channel_count);
