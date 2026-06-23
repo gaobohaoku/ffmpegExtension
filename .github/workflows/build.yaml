@@ -56,4 +56,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ffcodecs-release.aar
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/media3ext/build/outputs
